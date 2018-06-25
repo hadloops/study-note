@@ -1,0 +1,5 @@
+/* pages/bander/index.wxss */
+.map{
+  display: flex;
+  width: 100%;
+}

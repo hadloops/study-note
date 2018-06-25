@@ -1,0 +1,9 @@
+<!--pages/about/index.wxml-->
+<view class='nav'>
+
+</view>
+<view>
+  <text>111</text>
+</view>
+
+

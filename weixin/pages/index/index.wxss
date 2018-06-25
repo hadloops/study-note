@@ -1,0 +1,11 @@
+/* pages/about/index.wxss */
+.nav{
+  display: flex;
+  height: 8rem;
+  width: 100%;
+  background: #f50;
+  padding: 0;
+  justify-content: center; 
+  flex-direction: column; 
+  
+}
