@@ -27,6 +27,6 @@
         "selectedIconPath": "/image/med.png"
       }
     ]
-  }
-
+  },
+  "debug": true
 }

@@ -1,4 +1,6 @@
 //index.js
+var Api = require('../../utils/api.js')
+var wxRequest = require('../../utils/wxRequest.js')
 var app = getApp()
 Page({
 
@@ -6,11 +8,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    items: [
-      { name: 'USA', value: '美国' },
-      { name: 'CHN', value: '中国', checked: 'true' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' }
+    movies: [
+      { url: 'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg' },
+      { url: 'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg' },
+      { url: 'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg' },
+      { url: 'http://img02.tooopen.com/images/20141231/sy_78327074576.jpg' },
+      { url: 'http://img07.tooopen.com/images/20170822/tooopen_sy_221632634798.jpg' },
+      { url:'http://img06.tooopen.com/images/20180322/tooopen_sy_236837641582.jpg'}
+    ],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 3000,
+    duration: 5000,
+    list: [
+      { ul: 'https://blog.minqin58.com' },
+      { ul: 'https://blog.minqin58.com' },
+      { ul: 'https://blog.minqin58.com' }
     ]
   },
 
@@ -18,10 +31,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showToast({ //显示消息提示框  此处是提升用户体验的作用
-      title: '数据加载中',
-      icon: 'loading',
-    });
     wx.request({
       url: 'https://xcxapi.minqin58.com', //请求接口的url
       method: 'GET', //请求方式
@@ -29,16 +38,16 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
+      
       complete() {  //请求结束后隐藏 loading 提示框
         wx.hideLoading();
       },
       success: res => {
         this.setData({
-          data: res.data,
-          
+          info: res.data.data, 
         })
-        var datas = res.data.data;
-        console.log(datas);
+       
+       
       }
     });
   },
